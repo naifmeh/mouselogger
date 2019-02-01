@@ -1,0 +1,47 @@
+Manifest-Version: 1.0
+
+Name: background.js
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: QVRJtDOHe+SvtxlmxdKqTQ==
+SHA1-Digest: SngiR+htu6vcrha6x4lVk0wYu8g=
+
+Name: content.js
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: i/RqgyiZF6zNo/MPWFJUtQ==
+SHA1-Digest: r/2qC9yTVxnYa/PlPXSYKyt4HrI=
+
+Name: index.html
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 4WovoC1J8EoIMLJZ9xKsFA==
+SHA1-Digest: XsDRFBvmT7x6RO+v88IHUX2i9mI=
+
+Name: keylog.js
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: Zj0324yaRi8aBQu/4n/vpA==
+SHA1-Digest: K2Dn9MgZqFcG10J1jRJCnahziOs=
+
+Name: keylogger.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: nVx9DFvdaZrfjyY16nBlXA==
+SHA1-Digest: vFprSsnggDS5ZkZVRTV7hT6AXr0=
+
+Name: manifest.json
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 4w68QmqeO9iFVl1Gb2x4tw==
+SHA1-Digest: xEnnyDIdzWQKuHoBpDevuszwkMI=
+
+Name: icons/border-48.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 6aOUwZxU8Ai1QQqTsUgwpg==
+SHA1-Digest: rX041WQ24t3YY5xmh4AG79SO4xc=
+
+Name: icons/keylogger-icon48.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: owsmnomYJWYO8wZKU3vUUQ==
+SHA1-Digest: 4XZYfohVDm/Cwe+J6I65PyvpGLU=
+
+Name: icons/keylogger-icon96.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 7DugcyZN2obxdsRaz3FtLw==
+SHA1-Digest: 0VyQ7f5tE8HVUo8na3hbV43Pt5Q=
+
