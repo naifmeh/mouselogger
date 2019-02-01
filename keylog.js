@@ -7,6 +7,21 @@ window.addEventListener("paste", handlepasteevent, false);
 window.addEventListener("mousemove", logMouseMove, false);
 window.addEventListener("mousedown", logMouseDown, false);
 
+function dateToString(date) {
+	let month = date.getMonth() + 1;
+	let day = date.getDate();
+	let dateOfString = (("" + day).length < 2 ? "0" : "") + day + "/";
+	dateOfString += (("" + month).length < 2 ? "0" : "") + month + "/";
+	dateOfString += date.getFullYear();
+	let hour = date.getHours();
+	let minute = date.getMinutes();
+	let second = date.getSeconds();
+	dateOfString += " " + (("" + hour).length < 2 ? "0" : "") + hour + ":";
+	dateOfString += (("" + minute).length < 2 ? "0" : "") + minute + ":";
+	dateOfString += (("" + second).length < 2 ? "0" : "") + second;
+	
+}
+
 function handlepasteevent(e) {
 	// Get pasted data via clipboard API
     let clipboardData = e.clipboardData || window.clipboardData;
@@ -17,18 +32,21 @@ function handlepasteevent(e) {
 }
 
 function logMouseMove(e) {
-	let currentdate = new Date();
-				let datetime="";
-				datetime += dateToString(currentdate);
-	 chrome.runtime.sendMessage({action: "mouselog",data : datetime+':('+e.clientX+','+e.clientY+')'});
+	let currentdate = Date.now();
+	 chrome.runtime.sendMessage({action: "mouselog",data : currentdate+':('+e.pageX+','+e.pageY+')'});
 }
 
 function logMouseDown(e) {
-	//screenshot();
-	let currentdate = new Date();
-				let datetime="";
-				datetime += dateToString(currentdate);
-	 chrome.runtime.sendMessage({action: "mouselog",data : datetime+':['+e.clientX+','+e.clientY+']'});
+	// try {
+	// 	chrome.tabs.captureVisibleTab(window.Window.id, {}, function(image) {
+	// 		chrome.runtime.sendMessage({action:"imglog", data: 'gotchaaaaaaa'});
+	// 	});
+	// } catch(err) {
+	// 	chrome.runtime.sendMessage({action :"erreur", data: err});
+	// }
+	
+	let currentdate = Date.now();
+	 chrome.runtime.sendMessage({action: "mouselog",data :currentdate+':['+e.pageX+','+e.pageY+']'});
 }
 
 function logkeydown(e) {
