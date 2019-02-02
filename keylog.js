@@ -33,20 +33,13 @@ function handlepasteevent(e) {
 
 function logMouseMove(e) {
 	let currentdate = Date.now();
-	 chrome.runtime.sendMessage({action: "mouselog",data : currentdate+':('+e.pageX+','+e.pageY+')'});
+	
+	chrome.runtime.sendMessage({action: "mouselog",data : currentdate+':('+e.pageX+','+e.pageY+')'});
 }
 
 function logMouseDown(e) {
-	// try {
-	// 	chrome.tabs.captureVisibleTab(window.Window.id, {}, function(image) {
-	// 		chrome.runtime.sendMessage({action:"imglog", data: 'gotchaaaaaaa'});
-	// 	});
-	// } catch(err) {
-	// 	chrome.runtime.sendMessage({action :"erreur", data: err});
-	// }
-	
 	let currentdate = Date.now();
-	 chrome.runtime.sendMessage({action: "mouselog",data :currentdate+':['+e.pageX+','+e.pageY+']'});
+	chrome.runtime.sendMessage({action: "mouselog",data :currentdate+':['+e.pageX+','+e.pageY+']'});
 }
 
 function logkeydown(e) {
@@ -107,12 +100,6 @@ function logkeypress(e) {
 	}	
 }
 
-
-function screenshot() {
-	var capturing = browser.tabs.captureVisibleTab();
-	capturing.then(onCaptured, onError);
-	
-}
 
 function onCaptured(imageURI) {
 	chrome.runtime.sendMessage({action: "imglog", data: imageURI});
