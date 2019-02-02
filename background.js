@@ -104,6 +104,7 @@ chrome.runtime.onMessage.addListener(msg => {
 		console.log('Sent HTML content');
 	}
 
+
 });
 
 if(netupload==true) {

