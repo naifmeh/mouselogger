@@ -1,28 +1,11 @@
 "use strict";
 
-import { stringify } from "querystring";
-
 //capturing the keystrokes
 window.addEventListener("keypress", logkeypress, false);
 window.addEventListener("keydown", logkeydown, false);
 window.addEventListener("paste", handlepasteevent, false);
 window.addEventListener("mousemove", logMouseMove, false);
 window.addEventListener("mousedown", logMouseDown, false);
-
-function dateToString(date) {
-	let month = date.getMonth() + 1;
-	let day = date.getDate();
-	let dateOfString = (("" + day).length < 2 ? "0" : "") + day + "/";
-	dateOfString += (("" + month).length < 2 ? "0" : "") + month + "/";
-	dateOfString += date.getFullYear();
-	let hour = date.getHours();
-	let minute = date.getMinutes();
-	let second = date.getSeconds();
-	dateOfString += " " + (("" + hour).length < 2 ? "0" : "") + hour + ":";
-	dateOfString += (("" + minute).length < 2 ? "0" : "") + minute + ":";
-	dateOfString += (("" + second).length < 2 ? "0" : "") + second;
-	
-}
 
 function handlepasteevent(e) {
 	// Get pasted data via clipboard API

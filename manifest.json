@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "mouselogger",
-  "version": "0.0.1",
+  "version": "0.0.2",
 
   "description": "A mouselogger for training data!",
 
@@ -15,6 +15,7 @@
   "background": {
     "scripts": ["background.js"]
    },
+
    
    "browser_action": {
     "browser_style": true,

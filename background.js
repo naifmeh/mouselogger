@@ -41,20 +41,19 @@ chrome.commands.onCommand.addListener((command) => {
     		let setting = chrome.storage.local.set({storedkl: ""});
   	}
 });
-
+chrome.tabs.onActivated.addListener((tabId) => {
+	console.log('Tab changed');
+	mouse_coord = {};
+})
 var id = "";
-
 chrome.runtime.onMessage.addListener(msg => {
 	var ID = function () {
 		return '_' + Math.random().toString(36).substr(2, 9);
 	  };
-	// if(msg.action=="keylog") {
-    // 		console.log(concatenated);
-	// }
+
 	if(msg.action == "mouselog") {
 			let splitted = msg.data.split(':');
 			mouse_coord[splitted[0]] = splitted[1];
-			
 			if(splitted[1].charAt(0) === '[') {
 				id = ID();
 				mouse_json[id] = mouse_coord;
