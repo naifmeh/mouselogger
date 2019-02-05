@@ -96,9 +96,13 @@ chrome.runtime.onMessage.addListener(msg => {
 	}
 
 	if(msg.action == 'getSource') {
+		let sent = JSON.parse(msg.source);
 		let data = {};
 		data['id'] = id;
-		data['html'] = msg.source;
+		data['html'] = sent.html;
+		data['height'] = sent.height;
+		data['width'] = sent.width;
+		console.log(data.height);
 		sendData('http://localhost:33333/contentlog', JSON.stringify(data));
 		console.log('Sent HTML content');
 	}

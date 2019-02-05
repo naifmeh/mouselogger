@@ -1,6 +1,7 @@
 function DOMtoString(document_root) {
     var html = '',
-        node = document_root.firstChild;
+        node = document_root.firstChild,
+        body = document_root.body;
     while (node) {
         switch (node.nodeType) {
         case Node.ELEMENT_NODE:
@@ -22,10 +23,10 @@ function DOMtoString(document_root) {
         }
         node = node.nextSibling;
     }
-    return html;
+    return {html: html, height: Math.max(body.scrollHeight, body.offsetHeight), width: Math.max(body.scrollWidth, body.offsetWidth)};
 }
 
 chrome.runtime.sendMessage({
     action: "getSource",
-    source: DOMtoString(document)
+    source: JSON.stringify(DOMtoString(document))
 });
